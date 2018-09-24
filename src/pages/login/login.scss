@@ -1,0 +1,27 @@
+page-login {
+    $button-icon-padding: 5px;
+
+    .icon-right {
+        padding-left: $button-icon-padding;
+    }
+
+    .icon-left {
+        padding-right: $button-icon-padding;
+    }
+
+    .buttons-login {
+        width: 100%;
+    }
+
+    .vertical-center {
+        .scroll-content{
+            //Centers conetent horizontally and vertically
+            justify-content: center;
+            display: flex!important;
+            align-items: center!important;
+
+            //Disables the scroll inside the component
+            overflow: hidden !important;
+        }
+    }
+}
