@@ -1,5 +1,4 @@
 from flask import Flask
-from flask import Flask
 from flask import session
 from flask import redirect
 from flask import url_for
@@ -39,10 +38,10 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        dbDataUser = db.session.query(Users).filter(Username = username, Password = password).first()
+        dbDataUser = Users.query.filter_by(Username=username, Password=password).first()
         if dbDataUser:
             session['user_id'] = str(dbDataUser.ID)
-            response = make_response(jsonify('id: %s' % str(dbDataUser.ID)))
+            response = make_response(jsonify('{id: %s, username: %s}' % (str(dbDataUser.ID), dbDataUser.Username)))
             response.status = '200'
             response.headers['Content-Type'] = 'application/json'
             return response
